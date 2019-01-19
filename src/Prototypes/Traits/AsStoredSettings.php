@@ -46,7 +46,7 @@ trait AsStoredSettings
 		}
 
 		if ( !isset( $this->__settings[ $varName ] ) ) {
-			throw new PrototypeException( 'Variable  is not set in ' . self::class . '::get(' . $varName . ')' );
+			throw new PrototypeException( 'Variable is not set in ' . self::class . '::get(' . $varName . ')' );
 		}
 
 		return $this->__settings[ $varName ];

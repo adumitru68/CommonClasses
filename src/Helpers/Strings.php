@@ -9,6 +9,8 @@
 namespace Qpdb\Common\Helpers;
 
 
+use Qpdb\HtmlBuilder\Exceptions\HtmlBuilderException;
+
 class Strings
 {
 
@@ -115,6 +117,11 @@ class Strings
 		return $contents;
 	}
 
+	/**
+	 * @param      $string
+	 * @param bool $forceWords
+	 * @return mixed|null|string|string[]
+	 */
 	public static function camelCase( $string, $forceWords = false ) {
 		$i = array( "-", "_" );
 		if ( $forceWords ) {
@@ -129,5 +136,37 @@ class Strings
 		return $string;
 	}
 
+	/**
+	 * @param $string
+	 * @return bool
+	 * @throws HtmlBuilderException
+	 */
+	public static function isEmpty( $string ) {
+		switch ( gettype( $string ) ) {
+			case 'string':
+			case 'integer':
+			case 'double':
+				return '' === (string)$string;
+			case 'NULL':
+				return true;
+			default:
+				throw new HtmlBuilderException( 'It not is string' );
+		}
+	}
+
+	/**
+	 * @param mixed $string
+	 * @return null|string
+	 */
+	public static function toString( $string ) {
+		switch ( gettype( $string ) ) {
+			case 'string':
+			case 'integer':
+			case 'double':
+				return (string)$string;
+			default:
+				return null;
+		}
+	}
 
 }
