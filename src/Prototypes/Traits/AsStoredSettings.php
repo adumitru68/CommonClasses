@@ -16,7 +16,7 @@ trait AsStoredSettings
 	/**
 	 * @var array
 	 */
-	protected $__settings = [];
+	protected $__prototype_stored_settings_vars = [];
 
 	/**
 	 * @param $varName
@@ -29,7 +29,7 @@ trait AsStoredSettings
 		if ( gettype( $varName ) !== 'string' || empty( $varName ) ) {
 			throw new PrototypeException( 'Invalid variable name in ' . self::class . '::set()' );
 		}
-		$this->__settings[ $varName ] = $value;
+		$this->__prototype_stored_settings_vars[ $varName ] = $value;
 
 		return $this;
 	}
@@ -45,11 +45,11 @@ trait AsStoredSettings
 			throw new PrototypeException( 'Invalid variable name in ' . self::class . '::get()' );
 		}
 
-		if ( !isset( $this->__settings[ $varName ] ) ) {
+		if ( !isset( $this->__prototype_stored_settings_vars[ $varName ] ) ) {
 			throw new PrototypeException( 'Variable is not set in ' . self::class . '::get(' . $varName . ')' );
 		}
 
-		return $this->__settings[ $varName ];
+		return $this->__prototype_stored_settings_vars[ $varName ];
 	}
 
 	/**
@@ -57,7 +57,7 @@ trait AsStoredSettings
 	 */
 	public function getAll()
 	{
-		return $this->__settings;
+		return $this->__prototype_stored_settings_vars;
 	}
 
 
