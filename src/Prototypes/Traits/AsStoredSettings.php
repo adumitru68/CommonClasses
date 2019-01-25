@@ -55,10 +55,18 @@ trait AsStoredSettings
 	/**
 	 * @return array
 	 */
-	public function getAll()
-	{
+	public function getStoredData() {
 		return $this->__prototype_stored_settings_vars;
 	}
 
+	/**
+	 * @param array $data
+	 * @return $this
+	 */
+	public function withStoredData( array $data ) {
+		$this->__prototype_stored_settings_vars = $data;
+
+		return $this;
+	}
 
 }
