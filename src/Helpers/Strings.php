@@ -9,7 +9,7 @@
 namespace Qpdb\Common\Helpers;
 
 
-use Qpdb\Common\Exceptions\PrototypeException;
+use Qpdb\Common\Exceptions\CommonException;
 use Qpdb\HtmlBuilder\Exceptions\HtmlBuilderException;
 
 class Strings
@@ -157,7 +157,7 @@ class Strings
 	/**
 	 * @param mixed $string
 	 * @return null|string
-	 * @throws PrototypeException
+	 * @throws CommonException
 	 */
 	public static function toString( $string ) {
 		switch ( gettype( $string ) ) {
@@ -167,7 +167,7 @@ class Strings
 			case 'NULL':
 				return (string)$string;
 			default:
-				throw new PrototypeException( 'Impossible cast to string. This is ' . gettype( $string ) . '.' );
+				throw new CommonException( 'Impossible cast to string. This is ' . gettype( $string ) . '.' );
 		}
 	}
 

@@ -9,7 +9,7 @@
 namespace Qpdb\Common\Prototypes\Traits;
 
 
-use Qpdb\Common\Exceptions\PrototypeException;
+use Qpdb\Common\Exceptions\CommonException;
 
 trait AsStoredSettings
 {
@@ -22,12 +22,12 @@ trait AsStoredSettings
 	 * @param $varName
 	 * @param null $value
 	 * @return $this
-	 * @throws PrototypeException
+	 * @throws CommonException
 	 */
 	public function set( $varName, $value = null )
 	{
 		if ( gettype( $varName ) !== 'string' || empty( $varName ) ) {
-			throw new PrototypeException( 'Invalid variable name in ' . self::class . '::set()' );
+			throw new CommonException( 'Invalid variable name in ' . self::class . '::set()' );
 		}
 		$this->__prototype_stored_settings_vars[ $varName ] = $value;
 
@@ -37,16 +37,16 @@ trait AsStoredSettings
 	/**
 	 * @param string $varName
 	 * @return mixed
-	 * @throws PrototypeException
+	 * @throws CommonException
 	 */
 	public function get( $varName )
 	{
 		if ( gettype( $varName ) !== 'string' || empty( $varName ) ) {
-			throw new PrototypeException( 'Invalid variable name in ' . self::class . '::get()' );
+			throw new CommonException( 'Invalid variable name in ' . self::class . '::get()' );
 		}
 
 		if ( !isset( $this->__prototype_stored_settings_vars[ $varName ] ) ) {
-			throw new PrototypeException( 'Variable is not set in ' . self::class . '::get(' . $varName . ')' );
+			throw new CommonException( 'Variable is not set in ' . self::class . '::get(' . $varName . ')' );
 		}
 
 		return $this->__prototype_stored_settings_vars[ $varName ];

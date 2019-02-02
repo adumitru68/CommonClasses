@@ -9,7 +9,7 @@
 namespace Qpdb\Common\Exceptions;
 
 
-class PrototypeException extends \Exception
+class CommonException extends \Exception
 {
 
 }
