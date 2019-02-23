@@ -1,7 +1,7 @@
 {
 	"name": "qpdb/common",
 	"type": "library",
-	"description": "Php common classes for apps",
+	"description": "Php common classes for Qpdb apps",
 	"keywords": [
 		"php"
 	],
