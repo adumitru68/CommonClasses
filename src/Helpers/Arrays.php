@@ -17,7 +17,7 @@ class Arrays
 	 * @param bool  $unique
 	 * @return array
 	 */
-	public static function flatValues( $array = [], $unique = false ) {
+	public static function flattenValues( $array = [], $unique = false ) {
 		$array = (array)$array;
 		$return = array();
 		array_walk_recursive( $array, function( $a ) use ( &$return ) {
@@ -38,7 +38,7 @@ class Arrays
 	 * @return array
 	 */
 	public static function removeValues( array $array, $values = [], $onlyValues = false ) {
-		$values = self::flatValues( $values );
+		$values = self::flattenValues( $values );
 		if ( $onlyValues ) {
 			return array_values( array_diff( $array, $values ) );
 		}
