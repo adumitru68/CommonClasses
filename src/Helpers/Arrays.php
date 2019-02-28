@@ -9,6 +9,8 @@
 namespace Qpdb\Common\Helpers;
 
 
+use Qpdb\Common\Tree;
+
 class Arrays
 {
 
@@ -44,6 +46,14 @@ class Arrays
 		}
 
 		return array_diff( $array, $values );
+	}
+
+	/**
+	 * @param array $flattenArray
+	 * @return Tree
+	 */
+	public static function tree( array $flattenArray ) {
+		return new Tree( $flattenArray );
 	}
 
 	/**
