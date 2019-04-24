@@ -171,7 +171,7 @@ class Strings
 		}
 	}
 
-	public function generateRandom( $length = 10 ) {
+	public static function generateRandom( $length = 10 ) {
 		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 		$characters = str_shuffle( '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ' );
 		$charactersLength = strlen( $characters );
